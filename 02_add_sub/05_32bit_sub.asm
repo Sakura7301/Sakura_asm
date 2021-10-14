@@ -9,5 +9,6 @@ mov cx,0x0002
 sub ax,cx
 sbb bx,dx
 ;结果在bx:ax=0xffff0001
+jmp $
 times 510-($-$$) db 0
 db 0x55,0xaa
