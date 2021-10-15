@@ -33,6 +33,7 @@ printLines:
     mov al, [si]
     inc si
     mov ah, 0x0e
+    ;调用0x10号中断
     int 0x10
     loop .putchar
     ret
