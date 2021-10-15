@@ -32,7 +32,6 @@ ResetSegment:
     ;段总个数再0x10内存处
     mov cl,[0x10]
 
-
     ;重新计算段地址
     .reset:
     ;1.取出地址(高位->dx, 低位->ax)
@@ -64,8 +63,6 @@ ReseEntry:
 
     ;跳转至入口开始执行(因为跳转位置不在bootloader内,所以加far)
     jmp far [0x11]
-
-
 
 ;读取硬盘函数
 ReadHdd:
@@ -136,14 +133,12 @@ ReadHdd:
     pop dx
     ret
 
-
     ;硬盘读取起始扇区号:我们读取第1个扇区
     ;读取数量:一个扇区
     READSTART dd 1
     SECTORNUM dd 1 
     ;保存到内存的位置,起始位置设定为0x10000
     DESTMEN dd 0x10000
-
     
 End:jmp End
 times 510-($-$$) db 0
